@@ -11,7 +11,8 @@ test('added product appears in cart', async ({ page }) => {
     await page.locator('#add-to-cart-sauce-labs-backpack').click();
     await page.locator('#add-to-cart-sauce-labs-bike-light').click();
     await page.locator('#add-to-cart-sauce-labs-bolt-t-shirt').click();
-    await page.locator('a[aria-label="Cart, 3 items"]').click();
+    await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveText('3');
+    await page.locator('[data-test="shopping-cart-link"]').click();
     await expect(page.locator('.inventory_item_name').first()).toHaveText('Sauce Labs Backpack');
     await expect(page.locator('.inventory_item_name').nth(1)).toHaveText('Sauce Labs Bike Light');
     await expect(page.locator('.inventory_item_name').last()).toHaveText('Sauce Labs Bolt T-Shirt');
