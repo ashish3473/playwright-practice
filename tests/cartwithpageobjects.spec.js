@@ -17,6 +17,7 @@ test('added products appear in cart', async ({ page }) => {
 
     await expect(productsPage.cartBadge).toHaveText('3');
     await productsPage.openCart();
+    await expect(cartPage.cartItems).toHaveCount(3);
 
     const itemNames = await cartPage.getItemNames();
     expect(itemNames).toEqual(['Sauce Labs Backpack', 'Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt']);
