@@ -3,6 +3,7 @@ export class LoginPage {
         this.page = page;
         this.usernameInput = page.getByPlaceholder('Username');
         this.passwordInput = page.getByPlaceholder('Password');
+        this.errorMessage = page.locator('[data-test="error"]');  
     }
     async goto() {
         await this.page.goto('https://www.saucedemo.com');
