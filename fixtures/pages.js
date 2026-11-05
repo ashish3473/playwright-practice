@@ -15,6 +15,13 @@ export const test = base.extend({
     cartPage: async ({ page }, use) => {
         const cartPage = new CartPage(page);
         await use(cartPage);
+    },
+    loggedInProductsPage: async ({ page , loginPage }, use) => {
+        await loginPage.goto();
+        await loginPage.login('standard_user', 'secret_sauce');
+        const productsPage = new ProductsPage(page);
+        await use(productsPage);
+
     }
 });
 export { expect } from '@playwright/test';
