@@ -3,7 +3,7 @@ import { LoginPage } from '../pages/LoginPage';
 import {ProductsPage} from '../pages/ProductsPage';
 import {CartPage} from '../pages/CartPage';
 
-test('added products appear in cart', async ({ page }) => {
+test('added products appear in cart', { tag: '@smoke' }, async ({ page }) => {
   const loginPage = new LoginPage(page);
   const productsPage = new ProductsPage(page);
   const cartPage = new CartPage(page);

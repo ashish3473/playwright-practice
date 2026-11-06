@@ -1,6 +1,6 @@
 import { test, expect } from '../fixtures/pages';
 
-test('added products appear in cart', async ({ loginPage, productsPage, cartPage }) => {
+test('added products appear in cart', { tag: '@regression' }, async ({ loginPage, productsPage, cartPage }) => {
 
     await loginPage.goto();
     await loginPage.login('standard_user', 'secret_sauce');

@@ -1,6 +1,6 @@
 import { test, expect } from '../fixtures/pages';
 
-test('product added by a logged-in user appears in the cart', async ({ loggedInProductsPage, cartPage }) => {
+test('product added by a logged-in user appears in the cart', { tag: '@regression' }, async ({ loggedInProductsPage, cartPage }) => {
   await loggedInProductsPage.addProductToCart('sauce-labs-backpack');
   await expect(loggedInProductsPage.cartBadge).toHaveText('1');
   await loggedInProductsPage.openCart();
