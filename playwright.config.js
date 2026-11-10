@@ -49,6 +49,16 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+    {
+      name: 'smoke',
+      grep: /@smoke/,
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'regression',
+      grep: /@regression/,
+      use: { ...devices['Desktop Chrome'] },  
+    },
 
     /* Test against mobile viewports. */
     // {
